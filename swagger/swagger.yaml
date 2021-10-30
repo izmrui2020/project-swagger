@@ -1,0 +1,43 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Swagger-sample
+  description: |
+    #### サンプル
+schemes:
+  - http
+host: localhost:8080
+basePath: /api/v1
+paths:
+  /persons:
+    get:
+      summary: Get all persons.
+      parameters: []
+      responses:
+        200:
+          description: A JSON array of person model
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+            example:
+              - id: 1
+                name: Mike
+                age: 23
+              - id: 2
+                name: Jun
+                age: 20
+              - id: 3
+                name: Jack
+                age: 26
+
+definitions:
+  Person:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      age:
+        type: integer
